@@ -60,3 +60,18 @@
 - 头部组件开发
 - 底部组件开发
   
+## React Router 4.0
+
+- react-router 和 react-router-dom 理解
+  - 4.0 版本中已不需要路由配置，一切皆组件
+  - react-router：提供了一些 router 的核心 api，包括 Router、Route、Switch 等
+  - react-router-dom：提供了 BrowserRouter、HashRouter、Route、Link、NavLink
+- 路由模块安装
+  - npm install react-router-dom --save
+- react-router-dom 核心用法
+  - HashRouter 和 BrowserRouter
+  - Route：path、exact、component、render
+  - NavLink、Link
+  - Switch
+  - Redirect
+  

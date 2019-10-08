@@ -75,3 +75,6 @@
   - Switch
   - Redirect
   
+## 数据 mock
+
+<https://www.easy-mock.com> 基于 [mockjs](https://github.com/nuysoft/Mock/wiki/Getting-Started) 封装的平台。

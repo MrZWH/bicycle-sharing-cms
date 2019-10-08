@@ -20,7 +20,7 @@ export default class Modals extends React.Component {
 			content: '你确定？',
 			onOk(){
 				console.log('Ok')
-			}
+			},
 			onCancel() {
 				console.log('Cancel')
 			}

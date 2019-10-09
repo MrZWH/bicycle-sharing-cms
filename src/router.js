@@ -8,7 +8,11 @@ import Modals from './pages/ui/modals'
 import Loadings from './pages/ui/loadings'
 import Notice from './pages/ui/notice'
 import Messages from './pages/ui/messages'
+import City from './pages/city';
+import Order from './pages/order';
 import NoMatch from './pages/nomatch';
+import OrderDetail from './pages/order/detail';
+import Common from './common';
 
 export default class IRouter extends React.Component {
 	render() {
@@ -24,11 +28,18 @@ export default class IRouter extends React.Component {
 								<Route path="/admin/ui/loadings" component={Loadings} />
 								<Route path="/admin/ui/notification" component={Notice} />
 								<Route path="/admin/ui/messages" component={Messages} />
+								<Route path="/admin/city" component={City} />
+								<Route path="/admin/order" component={Order} />
 								<Route component={NoMatch} />
 							</Switch>
 						</Admin>
 					} />
-					<Route path="/order/detail" component={Login} />
+					<Route path="/common" render={
+						() =>
+							<Common>
+								<Route path="/common/order/detail/:orderId" component={OrderDetail} />
+							</Common>
+					} />
 				</App>
 			</HashRouter>
 		)

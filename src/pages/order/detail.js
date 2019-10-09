@@ -153,7 +153,7 @@ export default class Detail extends Component {
               </li>
               <li>
                 <div className="detail-form-left" >行驶里程</div>
-                <div className="detail-form-content">{info.distance / 1000}公里</div>
+                <div className="detail-form-content">{info.distance || 0 / 1000} 公里</div>
               </li>
             </ul>
           </div>

@@ -10,6 +10,7 @@ import Notice from './pages/ui/notice'
 import Messages from './pages/ui/messages'
 import City from './pages/city';
 import Order from './pages/order';
+import User from './pages/user';
 import NoMatch from './pages/nomatch';
 import OrderDetail from './pages/order/detail';
 import Common from './common';
@@ -30,6 +31,7 @@ export default class IRouter extends React.Component {
 								<Route path="/admin/ui/messages" component={Messages} />
 								<Route path="/admin/city" component={City} />
 								<Route path="/admin/order" component={Order} />
+								<Route path="/admin/user" component={User} />
 								<Route component={NoMatch} />
 							</Switch>
 						</Admin>

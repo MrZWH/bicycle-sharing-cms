@@ -39,13 +39,13 @@ class FilterForm extends Component {
               <DatePicker showTime={true} placeholder={placeHolder} format="YYYY-MM-DD HH:mm:ss" />
             )}
           </FormItem>
-          formItemList.push(begin_time)
+          formItemList.push(end_time)
         } else if (item.type === 'INPUT') {
           const INPUT = <FormItem label={label} key={field}>
             {getFieldDecorator(field, {
               initialValue
             })(
-              <Input type="text" placeholder={placeHolder} />
+              <Input type="text" style={{ width: width }} placeholder={placeHolder} />
             )}
           </FormItem>
           formItemList.push(INPUT)
@@ -72,6 +72,13 @@ class FilterForm extends Component {
             )}
           </FormItem>
           formItemList.push(CHECKBOX)
+        } else if (item.type === 'DATE') {
+          const DATE = <FormItem label={label} key={field}>
+            {getFieldDecorator(field)(
+              <DatePicker showTime={true} placeholder={placeHolder} format="YYYY-MM-DD HH:mm:ss" />
+            )}
+          </FormItem>
+          formItemList.push(DATE)
         }
 
       })

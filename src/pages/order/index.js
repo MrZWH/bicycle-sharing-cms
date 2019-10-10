@@ -3,8 +3,7 @@ import { Card, Select, Button, Table, Form, Modal, message, DatePicker } from 'a
 import axios from './../../axios';
 import Utils from './../../utils/utils';
 import BaseForm from '../../components/BaseForm';
-const FormItem = Form.Item
-const Option = Select.Option
+import ETable from '../../components/ETable';
 
 export default class Order extends Component {
   state = {
@@ -116,6 +115,10 @@ export default class Order extends Component {
         dataIndex: 'user_pay'
       }
     ]
+    const formItemLayout = {
+      labelCol: { span: 5 },
+      wrapperCol: { span: 19 }
+    }
     return (
       <div>
         <Card>
@@ -123,14 +126,17 @@ export default class Order extends Component {
         </Card>
         <Card style={{ marginTop: 10 }}>
           <Button type="primary" onClick={this.openOrderDetail}>订单详情</Button>
-          <Button type="primary">结束订单</Button>
+          <Button type="primary" style={{ marginLeft: 10 }} >结束订单</Button>
         </Card>
         <div className="content-wrap">
-          <Table
-            bordered
+          <ETable
+            updateSelectedItem={Utils.updateSelectedItem.bind(this)}
             columns={columns}
+            selectedIds={this.state.selectedIds}
+            selectedItem={this.state.selectedItem}
             dataSource={this.state.list}
             pagination={this.state.pagination}
+            selectedRowKeys={this.state.selectedRowKeys}
           />
         </div>
       </div>

@@ -25,18 +25,29 @@ class FilterForm extends Component {
         let label = item.label,
           field = item.field,
           initialValue = item.initialValue || '',
-          placeHolder = item.placeHolder,
+          placeholder = item.placeholder,
           width = item.width;
-        if (item.type == '时间查询') {
+        if (item.type == '城市') {
+          const city = <FormItem label="城市" key={field}>
+            {getFieldDecorator('city', {
+              initialValue: '0'
+            })(
+              <Select placeholder={placeholder} style={{ width: 80 }}>
+                {Utils.getOptionList([{ id: '0', name: '全部' }])}
+              </Select>
+            )}
+          </FormItem>
+          formItemList.push(city)
+        } else if (item.type == '时间查询') {
           const begin_time = <FormItem label="订单时间" key={field}>
             {getFieldDecorator('begin_time')(
-              <DatePicker showTime={true} placeholder={placeHolder} format="YYYY-MM-DD HH:mm:ss" />
+              <DatePicker showTime={true} placeholder={placeholder} format="YYYY-MM-DD HH:mm:ss" />
             )}
           </FormItem>
           formItemList.push(begin_time)
           const end_time = <FormItem label="~" colon={false} key={field}>
             {getFieldDecorator('end_time')(
-              <DatePicker showTime={true} placeholder={placeHolder} format="YYYY-MM-DD HH:mm:ss" />
+              <DatePicker showTime={true} placeholder={placeholder} format="YYYY-MM-DD HH:mm:ss" />
             )}
           </FormItem>
           formItemList.push(end_time)
@@ -45,7 +56,7 @@ class FilterForm extends Component {
             {getFieldDecorator(field, {
               initialValue
             })(
-              <Input type="text" style={{ width: width }} placeholder={placeHolder} />
+              <Input type="text" style={{ width: width }} placeholder={placeholder} />
             )}
           </FormItem>
           formItemList.push(INPUT)
@@ -54,7 +65,7 @@ class FilterForm extends Component {
             {getFieldDecorator(field, {
               initialValue
             })(
-              <Select placeholder={placeHolder} style={{ width: width }}>
+              <Select placeholder={placeholder} style={{ width: width }}>
                 {Utils.getOptionList(item.list)}
               </Select>
             )}
@@ -75,7 +86,7 @@ class FilterForm extends Component {
         } else if (item.type === 'DATE') {
           const DATE = <FormItem label={label} key={field}>
             {getFieldDecorator(field)(
-              <DatePicker showTime={true} placeholder={placeHolder} format="YYYY-MM-DD HH:mm:ss" />
+              <DatePicker showTime={true} placeholder={placeholder} format="YYYY-MM-DD HH:mm:ss" />
             )}
           </FormItem>
           formItemList.push(DATE)

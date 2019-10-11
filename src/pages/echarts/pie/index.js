@@ -11,7 +11,7 @@ import 'echarts/lib/component/markPoint';
 import echartTheme from '../themeLight';
 import ReactEcharts from 'echarts-for-react';
 
-export default class Bar extends Component {
+export default class Pie extends Component {
   componentWillMount() {
     echarts.registerTheme('Imooc', echartTheme)
   }

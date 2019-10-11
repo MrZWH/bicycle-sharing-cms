@@ -3,8 +3,9 @@ import { Row, Col } from 'antd';
 import './index.less';
 import Util from '../../utils/utils';
 import axios from '../../axios';
+import { connect } from 'react-redux';
 
-export default class Header extends Component {
+class Header extends Component {
   state = {}
   componentWillMount() {
     this.setState({
@@ -50,7 +51,7 @@ export default class Header extends Component {
         </Row>
         {!menuType && <Row className="breadcrumb">
           <Col span={4} className="breadcrumb-title">
-            首页
+            {this.props.menuName}
           </Col>
           <Col span={20} className="weather">
             <span className="date">{this.state.sysTime}</span>
@@ -68,3 +69,11 @@ export default class Header extends Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    menuName: state.menuName
+  }
+}
+
+export default connect(mapStateToProps)(Header)
